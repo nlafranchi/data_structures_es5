@@ -1,4 +1,4 @@
-var SinglyLinkedList = (function() {
+module.exports = (function() {
 
 	var Node = function(val, node) {
 		this.value = val;
@@ -62,7 +62,7 @@ var SinglyLinkedList = (function() {
 		return ref2;
 	}
 
-	SinglyLinkedList.prototype.get(index) {
+	SinglyLinkedList.prototype.get = function(index) {
 		if(index >= 0) {
 			var count = 0;
 			while(count < index) {
@@ -75,9 +75,9 @@ var SinglyLinkedList = (function() {
 	}
 
 	SinglyLinkedList.prototype.toString = function() {
-		var node = this.head;
-		while (node) {
-			console.log('a'  + node.value +  ' ' + this.size + (node.next ?  ', ' : ''));
+		let node = this.head;
+		while (node != null) {
+			console.log(node.value)
 			node = node.next;
 		}
 	}
@@ -87,36 +87,6 @@ var SinglyLinkedList = (function() {
 })();
 
 
-var list = new SinglyLinkedList();
-var list2 = new SinglyLinkedList();
 
-list.add('100');
-list.add('111');
-list.add('222');
 
-list2.add('100111');
-list2.add('111111');
-list2.add('222111');
 
-list.removeLast();
-list2.removeFirst();
-
-console.log(list.toString());
-console.log(list2.toString());
-
-list.removeLast();
-list2.removeFirst();
-
-console.log(list.toString());
-console.log(list2.toString());
-list.removeLast();
-list2.removeFirst();
-
-console.log(list.toString());
-console.log(list2.toString());
-
-list.removeLast();
-list2.removeFirst();
-
-console.log(list.toString());
-console.log(list2.toString());
