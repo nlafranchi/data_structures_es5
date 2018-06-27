@@ -18,29 +18,29 @@ list.removeLast();
 list2.removeFirst();
 
 
-list.toString();
-list2.toString();
+console.log(list.toString());
+console.log(list2.toString());
 
 list.removeLast();
 list2.removeFirst();
 
-list.toString();
-list2.toString();
+console.log(list.toString());
+console.log(list2.toString());
 
 list.removeLast();
 list2.removeFirst();
 
-list.toString();
-list2.toString();
+console.log(list.toString());
+console.log(list2.toString());
 
 list.removeLast();
 list2.removeFirst();
 
-list.toString();
-list2.toString();
+console.log(list.toString());
+console.log(list2.toString());
 
 list.add('100');
 list2.add('100111');
 
-list.toString();
-list2.toString();
+console.log(list.toString());
+console.log(list2.toString());

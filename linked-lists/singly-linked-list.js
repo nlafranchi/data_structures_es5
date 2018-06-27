@@ -77,9 +77,9 @@ module.exports = (function() {
 	SinglyLinkedList.prototype.toString = function() {
 		let node = this.head;
 		while (node != null) {
-			console.log(node.value)
 			node = node.next;
 		}
+		return node;
 	}
 
 	return SinglyLinkedList;
