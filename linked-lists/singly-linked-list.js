@@ -14,7 +14,7 @@ module.exports = (function() {
 		return this.size == 0;
 	}
 
-	SinglyLinkedList.prototype.size = function() {
+	SinglyLinkedList.prototype.getSize = function() {
 		return this.size;
 	}
 
@@ -63,15 +63,15 @@ module.exports = (function() {
 	}
 
 	SinglyLinkedList.prototype.get = function(index) {
-		if(index >= 0) {
+		if(index >= 0 && index < this.size) {
 			var count = 0;
+			var node = this.head;
 			while(count < index) {
-				if(temp.value == val) {
-					return 
-				}
+					count++;
+					node = node.next;
 			}
+			return node;
 		}
-		
 	}
 
 	SinglyLinkedList.prototype.toString = function() {

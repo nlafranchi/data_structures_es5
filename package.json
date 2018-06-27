@@ -1,0 +1,23 @@
+{
+  "name": "data_structures_es5",
+  "version": "1.0.0",
+  "description": "ES5 Data Structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nlafranchi/data_structures_es5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nlafranchi/data_structures_es5/issues"
+  },
+  "homepage": "https://github.com/nlafranchi/data_structures_es5#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
