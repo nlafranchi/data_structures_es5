@@ -1,10 +1,5 @@
 module.exports = (function() {
-
-	var Node = function(val, node) {
-		this.value = val;
-		this.next = node;
-	}
-	
+  var Node = require('../model/single-link-node.model').Node;
 	function SinglyLinkedList() {
 		this.size = 0;
 		this.head = null;
