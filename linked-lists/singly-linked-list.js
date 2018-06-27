@@ -76,10 +76,12 @@ module.exports = (function() {
 
 	SinglyLinkedList.prototype.toString = function() {
 		let node = this.head;
+		let string = '[ ';
 		while (node != null) {
+			string += node.value + (node.next ? ', ': '');
 			node = node.next;
 		}
-		return node;
+		return string + ' ]';
 	}
 
 	return SinglyLinkedList;
