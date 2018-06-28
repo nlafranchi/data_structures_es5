@@ -7,18 +7,29 @@ module.exports = (function() {
       return key;
     }
 
-    this.setKey = function(k) {
-      key = k;
-    }
-
     this.getValue = function() {
       return value;
     }
 
     this.setValue = function(v) {
-      value = v
+      var oldValue = value;
+      value = v;
+      return oldValue;
+    }
+
+    this.equals = function(hashEntry) {
+      if (hashEntry instanceof HashEntry) {
+        if (hashEntry.getKey() === key && hashEntry.getValue() === value) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
     }
   }
 
   return HashEntry;
+  
 })();
