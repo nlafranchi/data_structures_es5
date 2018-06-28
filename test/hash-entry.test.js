@@ -25,4 +25,14 @@ describe('test hash entry', function () {
     // Assert
     expect(hs1.equals(hs2)).to.be.equal(true);
   });
+
+  it('should not be equal to another hash entry', function() {
+    var testKey = 'this is a key';
+    var testValue = 'this is a value';
+    var hs1 = new HashEntry(testKey, 'not equal');
+    var hs2 = new HashEntry(testKey, testValue);
+
+    // Assert
+    expect(hs1.equals(hs2)).to.be.equal(false);
+  });
 });
