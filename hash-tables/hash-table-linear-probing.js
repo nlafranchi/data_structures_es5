@@ -25,12 +25,28 @@ module.exports = (function() {
         hash = hash & hash; // Convert to 32bit integer
       }
       return hash;
-    }
+    };
 
     // MAD hash
     this.hashValue = function(key) {
       return Math.abs(hashCode(key) * scale + shift) % capacity;
     };
+
+    this.size = function() { return n; };
+    this.isEmpty = function() { return n === 0; }
+
+    this.keys = function() {
+      var keys = [];
+      for (var i = 0; i < capacity; i++) {
+        if ((bucket[i] != null) && (bucket[i] != AVAILABLE)) {
+          keys.push(bucket[i]);
+        }
+      }
+      return keys;
+    };
+
   }
+
   return HashTableMap;
+
 })();

@@ -50,4 +50,14 @@ describe('test hash entry', function () {
       }
     }
   });
+
+  it('should be empty', function () {
+
+    // Arrange and Act
+    var hs =  new HashTable();
+
+    //Assert
+    expect(hs.isEmpty()).to.be.equal(true);
+  });
+
 });
