@@ -60,4 +60,33 @@ describe('test hash entry', function () {
     expect(hs.isEmpty()).to.be.equal(true);
   });
 
+  it ('should be correct size', function() {
+    // Arrange
+    var hs = new HashTable();
+    // Act
+    hs.put(10, 10);
+    // Assert
+    expect(hs.size()).to.be.equal(1);
+    hs.put(10, 11);
+    expect(hs.size()).to.be.equal(1);
+  });
+
+  it ('should get correct values with given keys with rehash', function() {
+    var hs = new HashTable(6);
+
+    hs.put('key1', 'value1');
+    hs.put('key2', 'value2');
+    hs.put('key3', 'value3');
+    hs.put('key4', 'value4');
+    hs.put('key5', 'value5');
+    hs.put('key6', 'value6');
+
+    expect(hs.size()).to.be.equal(6);
+    expect(hs.get('key1')).to.be.equal('value1');
+    expect(hs.get('key2')).to.be.equal('value2');
+    expect(hs.get('key3')).to.be.equal('value3');
+    expect(hs.get('key4')).to.be.equal('value4');
+    expect(hs.get('key5')).to.be.equal('value5');
+    expect(hs.get('key6')).to.be.equal('value6');
+  });
 });

@@ -1,85 +1,86 @@
-module.exports = (function() {
+module.exports = (function () {
   var Node = require('../model/single-link-node.model').Node;
-	function SinglyLinkedList() {
-		this.size = 0;
-		this.head = null;
-	}
 
-	SinglyLinkedList.prototype.isEmpty = function() {
-		return this.size == 0;
-	}
+  function SinglyLinkedList() {
+    this.size = 0;
+    this.head = null;
+  }
 
-	SinglyLinkedList.prototype.getSize = function() {
-		return this.size;
-	}
+  SinglyLinkedList.prototype.isEmpty = function () {
+    return this.size == 0;
+  }
 
-	SinglyLinkedList.prototype.add = function(value) {
-		var temp = this.head;
-		this.head = new Node(value);
-		this.head.next= temp;
-		this.size++;
-	}
+  SinglyLinkedList.prototype.getSize = function () {
+    return this.size;
+  }
 
-	SinglyLinkedList.prototype.removeFirst = function() {
-		if (!this.head) {
-			console.log('Error: this list is empty!');
-			return;
-		}
-		var temp = this.head;
-		this.head = this.head.next;
-		temp.next = null;
-		this.size--;
-	}
+  SinglyLinkedList.prototype.add = function (value) {
+    var temp = this.head;
+    this.head = new Node(value);
+    this.head.next = temp;
+    this.size++;
+  }
 
-	SinglyLinkedList.prototype.removeLast = function() {
-		var temp = this.head;
-		if (!temp) {
-			console.log('Error: this list is empty!');
-			return null;
-		} else if (this.size == 1) {
-			this.head = null;
-			return temp;
-		} 
+  SinglyLinkedList.prototype.removeFirst = function () {
+    if (!this.head) {
+      console.log('Error: this list is empty!');
+      return;
+    }
+    var temp = this.head;
+    this.head = this.head.next;
+    temp.next = null;
+    this.size--;
+  }
 
-		// Pointers for finding last node
-		// ref2 will ultimately be the last
-		// node in the list
-		var ref1 = this.head;
-		var ref2 = ref1.next;
+  SinglyLinkedList.prototype.removeLast = function () {
+    var temp = this.head;
+    if (!temp) {
+      console.log('Error: this list is empty!');
+      return null;
+    } else if (this.size == 1) {
+      this.head = null;
+      return temp;
+    }
 
-		while (ref2.next) {
-			ref1 = ref1.next;
-			ref2 = ref2.next;
-		}
+    // Pointers for finding last node
+    // ref2 will ultimately be the last
+    // node in the list
+    var ref1 = this.head;
+    var ref2 = ref1.next;
 
-		ref1.next = null;
-		this.size--;
-		return ref2;
-	}
+    while (ref2.next) {
+      ref1 = ref1.next;
+      ref2 = ref2.next;
+    }
 
-	SinglyLinkedList.prototype.get = function(index) {
-		if(index >= 0 && index < this.size) {
-			var count = 0;
-			var node = this.head;
-			while(count < index) {
-					count++;
-					node = node.next;
-			}
-			return node;
-		}
-	}
+    ref1.next = null;
+    this.size--;
+    return ref2;
+  }
 
-	SinglyLinkedList.prototype.toString = function() {
-		let node = this.head;
-		let string = '[ ';
-		while (node != null) {
-			string += node.value + (node.next ? ', ': '');
-			node = node.next;
-		}
-		return string + ' ]';
-	}
+  SinglyLinkedList.prototype.get = function (index) {
+    if (index >= 0 && index < this.size) {
+      var count = 0;
+      var node = this.head;
+      while (count < index) {
+        count++;
+        node = node.next;
+      }
+      return node;
+    }
+  }
 
-	return SinglyLinkedList;
+  SinglyLinkedList.prototype.toString = function () {
+    let node = this.head;
+    let string = '[ ';
+    while (node != null) {
+      string += node.value + (node.next ? ', ' : '');
+      node = node.next;
+    }
+    return string + ' ]';
+  }
+
+  return SinglyLinkedList;
 
 })();
 
