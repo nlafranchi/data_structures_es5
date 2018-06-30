@@ -90,6 +90,16 @@ module.exports = (function() {
       }
     }
 
+    this.remove = function(key) {
+      var i = findEntry(key);
+      if (i < 0 || !bucket[i]) return null;
+      var value = bucket[i].getValue();
+      bucket[i] = AVAILABLE;
+      n--;
+      return value;
+    }
+
+
     this.size = function() { return n; };
     this.isEmpty = function() { return n === 0; }
 
