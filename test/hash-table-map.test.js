@@ -63,10 +63,11 @@ describe('test hash entry', function () {
   it ('should be correct size', function() {
     // Arrange
     var hs = new HashTable();
+    expect(hs.size()).to.be.equal(0);
     // Act
     hs.put(10, 10);
     // Assert
-    expect(hs.size()).to.be.equal(1);
+
     hs.put(10, 11);
     expect(hs.size()).to.be.equal(1);
   });
